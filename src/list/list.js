@@ -69,10 +69,13 @@ class Todolist extends Component {
 	}
 
 	render() {
-		let todos = this.state.todos;
+		const {todos, text} = this.state;
 
 		return (
 			<div className="todolist">
+				<div>
+		          <input name="name" type="text" value={text} onChange={this.onChange} />
+		        </div>
 				<button onClick={this.onClick}>Add item</button>
 		        <table className="table table-bordered">
 		          <thead>

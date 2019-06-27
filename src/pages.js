@@ -2,6 +2,7 @@ import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Breadcrumb } from './components';
 import { Todolist } from './list/list';
+import { Productlist } from './product/productlist';
 import { rootPath } from './routes';
 
 /**
@@ -41,7 +42,7 @@ const About = ({ location }) => {
   )
 }
 
-const Books = ({ location }) => {
+const Products = ({ location }) => {
   const onMatchedRoutes = (matchedRoutes) => {
     return [
       {
@@ -56,11 +57,12 @@ const Books = ({ location }) => {
 
   return (
     <div>
-      <h1 className="py-3">Books</h1>
+      <h1 className="py-3">Products</h1>
       <Breadcrumb
         locationPath={location.pathname}
         onMatchedRoutes={onMatchedRoutes}
       />
+      <Productlist />
     </div>
   );
 };
@@ -107,4 +109,4 @@ const Laptop = () => {
   return <h3>Laptop</h3>;
 };
 
-export { Home, About, Books, Electronics, Mobile, Desktop, Laptop };
+export { Home, About, Products, Electronics, Mobile, Desktop, Laptop };

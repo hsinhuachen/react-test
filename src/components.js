@@ -36,8 +36,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to={`${rootPath}/books`}>
-              Books
+            <Link className="nav-link" to={`${rootPath}/products`}>
+              Products
             </Link>
           </li>
           <li className="nav-item dropdown">
