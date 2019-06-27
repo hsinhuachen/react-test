@@ -4,6 +4,7 @@ import { BrowserRouter, Switch } from 'react-router-dom';
 import App from './App';
 import Header from './Header';
 import Footer from './Footer';
+import './index.css';
 
 ReactDOM.render(
 	<BrowserRouter>

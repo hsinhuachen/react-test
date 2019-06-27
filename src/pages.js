@@ -1,29 +1,75 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+import { Breadcrumb } from './components';
+import { rootPath } from './routes';
 
-
-const Home = () => {
-  return <h1 className="py-3">Home</h1>;
-};
-
-const Books = () => {
-  return <h1 className="py-3">Books</h1>;
-};
-
-const Electronics = () => {
+/**
+ * These are root pages
+ */
+const Home = ({ location }) => {
   return (
     <div>
-      <h1>Electronics</h1>
-      <Switch>
-        {/* The component will show here if the current URL matches the path */}
-        <Route path="/electronics/mobile" component={Mobile} />
-        <Route path="/electronics/desktop" component={Desktop} />
-        <Route path="/electronics/laptop" component={Laptop} />
-      </Switch>
+      <h1 className="py-3">Home</h1>
+      <Breadcrumb locationPath={location.pathname} />
+      <p>6666</p>
     </div>
   );
 };
 
+const Books = ({ location }) => {
+  const onMatchedRoutes = (matchedRoutes) => {
+    return [
+      {
+        route: {
+          path: `${rootPath}/`,
+          breadcrumbName: 'Home'
+        }
+      },
+      ...matchedRoutes
+    ];
+  };
+
+  return (
+    <div>
+      <h1 className="py-3">Books</h1>
+      <Breadcrumb
+        locationPath={location.pathname}
+        onMatchedRoutes={onMatchedRoutes}
+      />
+    </div>
+  );
+};
+
+const Electronics = ({ route, location }) => {
+  const onMatchedRoutes = (matchedRoutes) => {
+    return [
+      {
+        route: {
+          path: `${rootPath}/`,
+          breadcrumbName: 'Home'
+        }
+      },
+      ...matchedRoutes
+    ];
+  };
+
+  return (
+    <div>
+      <h1 className="py-3">Electronics</h1>
+
+      <Breadcrumb
+        locationPath={location.pathname}
+        onMatchedRoutes={onMatchedRoutes}
+      />
+
+      {renderRoutes(route.routes)}
+    </div>
+  );
+};
+
+/**
+ * These are pages nested in Electronics
+ */
 const Mobile = () => {
   return <h3>Mobile Phone</h3>;
 };

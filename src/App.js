@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
-import { Home, Books, Electronics } from './pages';
+import { renderRoutes } from 'react-router-config';
 import { Navbar } from './components';
+import routes from './routes';
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        {/* The corresponding component will show here if the current URL matches the path */}
         <Navbar />
-        <Route path="/" exact component={Home} />
-        <Route path="/books" component={Books} />
-        <Route path="/electronics" component={Electronics} />
+        
+        {renderRoutes(routes)}
       </div>
     );
   }
