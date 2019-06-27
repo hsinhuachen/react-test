@@ -16,6 +16,30 @@ const Home = ({ location }) => {
   );
 };
 
+const About = ({ location }) => {
+  const onMatchedRoutes = (matchedRoutes) => {
+    return [
+      {
+        route: {
+          path: `${rootPath}/`,
+          breadcrumbName: 'Home'
+        }
+      },
+      ...matchedRoutes
+    ];
+  };
+
+  return (
+    <div>
+        <h1 className="py-3">About</h1>
+        <Breadcrumb
+          locationPath={location.pathname}
+          onMatchedRoutes={onMatchedRoutes}
+        />
+    </div>
+  )
+}
+
 const Books = ({ location }) => {
   const onMatchedRoutes = (matchedRoutes) => {
     return [
@@ -82,4 +106,4 @@ const Laptop = () => {
   return <h3>Laptop</h3>;
 };
 
-export { Home, Books, Electronics, Mobile, Desktop, Laptop };
+export { Home, About, Books, Electronics, Mobile, Desktop, Laptop };

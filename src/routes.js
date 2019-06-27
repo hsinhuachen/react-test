@@ -1,4 +1,4 @@
-import { Home, Books, Electronics, Mobile, Desktop, Laptop } from './pages';
+import { Home, About, Books, Electronics, Mobile, Desktop, Laptop } from './pages';
 const rootPath = process.env.PUBLIC_URL;
 
 const routes = [
@@ -7,6 +7,11 @@ const routes = [
     component: Home,
     exact: true,
     breadcrumbName: 'Home'
+  },
+  {
+    path: `${rootPath}/about`,
+    component: About,
+    breadcrumbName: 'About'
   },
   {
     path: `${rootPath}/books`,
