@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Breadcrumb } from './components';
+import { Todolist } from './list/list';
 import { rootPath } from './routes';
 
 /**
@@ -11,7 +12,7 @@ const Home = ({ location }) => {
     <div>
       <h1 className="py-3">Home</h1>
       <Breadcrumb locationPath={location.pathname} />
-      <p>6666</p>
+      <Todolist />
     </div>
   );
 };
