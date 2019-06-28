@@ -2,6 +2,7 @@ import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import { Breadcrumb } from './components';
 import { Todolist } from './list/list';
+import { Slideshow } from './slideshow/index';
 import { Productlist } from './product/productlist';
 import { rootPath } from './routes';
 
@@ -13,7 +14,7 @@ const Home = ({ location }) => {
     <div>
       <h1 className="py-3">Home</h1>
       <Breadcrumb locationPath={location.pathname} />
-      <Todolist />
+      <Slideshow />
     </div>
   );
 };
@@ -42,7 +43,32 @@ const About = ({ location }) => {
   )
 }
 
-const Products = ({ location }) => {
+const Todo = ({ location }) => {
+  const onMatchedRoutes = (matchedRoutes) => {
+    return [
+      {
+        route: {
+          path: `${rootPath}/`,
+          breadcrumbName: 'Home'
+        }
+      },
+      ...matchedRoutes
+    ];
+  };
+
+  return (
+    <div>
+        <h1 className="py-3">TodoList</h1>
+        <Breadcrumb
+          locationPath={location.pathname}
+          onMatchedRoutes={onMatchedRoutes}
+        />
+        <Todolist />
+    </div>
+  )
+}
+
+const Products = ({ route, location }) => {
   const onMatchedRoutes = (matchedRoutes) => {
     return [
       {
@@ -62,6 +88,7 @@ const Products = ({ location }) => {
         locationPath={location.pathname}
         onMatchedRoutes={onMatchedRoutes}
       />
+      {renderRoutes(route.routes)}
       <Productlist />
     </div>
   );
@@ -88,8 +115,33 @@ const Electronics = ({ route, location }) => {
         locationPath={location.pathname}
         onMatchedRoutes={onMatchedRoutes}
       />
-
       {renderRoutes(route.routes)}
+    </div>
+  );
+};
+
+const Item = ({ route, location }) => {
+  const onMatchedRoutes = (matchedRoutes) => {
+    return [
+      {
+        route: {
+          path: `${rootPath}/`,
+          breadcrumbName: 'Home'
+        }
+      },
+      ...matchedRoutes
+    ];
+  };
+
+  return (
+    <div>
+      <h1 className="py-3">Item</h1>
+
+      <Breadcrumb
+        locationPath={location.pathname}
+        onMatchedRoutes={onMatchedRoutes}
+      />
+      {location.pathname}
     </div>
   );
 };
@@ -97,7 +149,7 @@ const Electronics = ({ route, location }) => {
 /**
  * These are pages nested in Electronics
  */
-const Mobile = () => {
+const Mobile = ({ route, location }) => {
   return <h3>Mobile Phone</h3>;
 };
 
@@ -109,4 +161,4 @@ const Laptop = () => {
   return <h3>Laptop</h3>;
 };
 
-export { Home, About, Products, Electronics, Mobile, Desktop, Laptop };
+export { Home, Slideshow, About, Todo, Products, Item, Electronics, Mobile, Desktop, Laptop };

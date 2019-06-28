@@ -1,4 +1,4 @@
-import { Home, About, Products, Electronics, Mobile, Desktop, Laptop } from './pages';
+import { Home, About, Todo, Products, Item, Electronics, Mobile, Desktop, Laptop } from './pages';
 const rootPath = process.env.PUBLIC_URL;
 
 const routes = [
@@ -14,9 +14,20 @@ const routes = [
     breadcrumbName: 'About'
   },
   {
+    path: `${rootPath}/todo`,
+    component: Todo,
+    breadcrumbName: 'TodoList'
+  },
+  {
     path: `${rootPath}/products`,
     component: Products,
+    exact: true,
     breadcrumbName: 'Products'
+  },
+  {
+    path: `${rootPath}/products/item`,
+    component: Item,
+    breadcrumbName: 'Item'
   },
   {
     path: `${rootPath}/electronics`,

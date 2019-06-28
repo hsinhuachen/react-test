@@ -36,6 +36,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link className="nav-link" to={`${rootPath}/todo`}>
+              TodoList
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link className="nav-link" to={`${rootPath}/products`}>
               Products
             </Link>
