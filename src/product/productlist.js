@@ -8,7 +8,7 @@ class Productlist extends Component {
 
 		return (	
 			<div className="ProductList">
-				<div class="row">
+				<div className="row">
 				{
 				  arrLists.map((list) => <Item title={list} />)  
 				}

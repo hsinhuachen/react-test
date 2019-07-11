@@ -6,7 +6,7 @@ class Item extends Component {
 	render() {
 		const {title} = this.props;
 		return (
-			<div class="col-sm">
+			<div className="col-sm">
 				<h3>{title}</h3>
 				<Link className="btn btn-primary" to={`${rootPath}/products/item`}>
 	              Detail

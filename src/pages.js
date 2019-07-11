@@ -4,6 +4,7 @@ import { Breadcrumb } from './components';
 import { Todolist } from './list/list';
 import { Slideshow } from './slideshow/index';
 import { Productlist } from './product/productlist';
+import { AboutContent } from './about/about';
 import { rootPath } from './routes';
 
 /**
@@ -11,7 +12,7 @@ import { rootPath } from './routes';
  */
 const Home = ({ location }) => {
   return (
-    <div>
+    <div className="fade">
       <h1 className="py-3">Home</h1>
       <Breadcrumb locationPath={location.pathname} />
       <Slideshow />
@@ -33,12 +34,13 @@ const About = ({ location }) => {
   };
 
   return (
-    <div>
+    <div className="fade">
         <h1 className="py-3">About</h1>
         <Breadcrumb
           locationPath={location.pathname}
           onMatchedRoutes={onMatchedRoutes}
         />
+        <AboutContent />
     </div>
   )
 }
@@ -57,7 +59,7 @@ const Todo = ({ location }) => {
   };
 
   return (
-    <div>
+    <div className="fade">
         <h1 className="py-3">TodoList</h1>
         <Breadcrumb
           locationPath={location.pathname}
@@ -82,7 +84,7 @@ const Products = ({ route, location }) => {
   };
 
   return (
-    <div>
+    <div className="fade">
       <h1 className="py-3">Products</h1>
       <Breadcrumb
         locationPath={location.pathname}
@@ -108,7 +110,7 @@ const Electronics = ({ route, location }) => {
   };
 
   return (
-    <div>
+    <div className="fade">
       <h1 className="py-3">Electronics</h1>
 
       <Breadcrumb
@@ -134,7 +136,7 @@ const Item = ({ route, location }) => {
   };
 
   return (
-    <div>
+    <div className="fade">
       <h1 className="py-3">Item</h1>
 
       <Breadcrumb
@@ -161,4 +163,4 @@ const Laptop = () => {
   return <h3>Laptop</h3>;
 };
 
-export { Home, Slideshow, About, Todo, Products, Item, Electronics, Mobile, Desktop, Laptop };
+export { Home, Slideshow, About, AboutContent, Todo, Products, Item, Electronics, Mobile, Desktop, Laptop };
