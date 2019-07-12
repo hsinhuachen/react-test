@@ -22,4 +22,5 @@ ReactDOM.render(
   </BrowserRouter>
   , document.getElementById('main')
 );
+
 ReactDOM.render(<Footer />, document.getElementById('footer'))

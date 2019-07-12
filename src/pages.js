@@ -12,7 +12,7 @@ import { rootPath } from './routes';
  */
 const Home = ({ location }) => {
   return (
-    <div className="fade">
+    <div>
       <h1 className="py-3">Home</h1>
       <Breadcrumb locationPath={location.pathname} />
       <Slideshow />
