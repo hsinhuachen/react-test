@@ -8,7 +8,8 @@
     "react-router-config": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-slideshow-image": "^1.2.0"
+    "react-slideshow-image": "^1.2.0",
+    "lodash": ">=4.17.13"
   },
   "scripts": {
     "start": "react-scripts start",
